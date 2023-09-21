@@ -22,3 +22,4 @@ Production Jenkins Monitoring with Grafana , Prometheus and InfluxDB
 
 ![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/62bde4c7-ea42-46de-8f86-0fd18074c628)
 
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/bcba5909-f9eb-4c97-a61e-87dca7dbe9f6)
