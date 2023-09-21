@@ -1,12 +1,9 @@
 # jenkins-monitoring
 Production Jenkins Monitoring with Grafana , Prometheus and InfluxDB
 
-<<<<<<< HEAD
 **Overview:**
 
 
-=======
->>>>>>> 9b362dd10e057f7ee398461a83c041d37b07d60b
 ## Tech Stack
 
 <p align="center">
@@ -18,7 +15,6 @@ Production Jenkins Monitoring with Grafana , Prometheus and InfluxDB
 </p>
 
 
-<<<<<<< HEAD
 ## 1. Tool Setup
 
 First we will create 4 containers of Jenkins, Grafana , Prometheus and InfluxDB
@@ -140,16 +136,3 @@ SHOW DATABASES
   ```bash
   vi prometheus.yml
   ```
-=======
-![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/fd806043-6c93-4603-a1af-70058d44391f)
-
-![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/87d490ff-b113-441d-8403-7656f50e31ac)
-
-![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/c6220f22-530f-4964-a673-bffce2618aba)
-
-![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/0a3fa932-dbb0-4b2c-9925-f81b0ba8b8f7)
-
-![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/62bde4c7-ea42-46de-8f86-0fd18074c628)
-
-![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/bcba5909-f9eb-4c97-a61e-87dca7dbe9f6)
->>>>>>> 9b362dd10e057f7ee398461a83c041d37b07d60b
