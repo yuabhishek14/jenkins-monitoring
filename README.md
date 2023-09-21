@@ -11,7 +11,7 @@ Production Jenkins Monitoring with Grafana , Prometheus and InfluxDB
   <img src="https://github.com/yuabhishek14/Production-E2E-Pipeline/assets/43784560/80447647-d723-42fc-8b60-209d9a511115" alt="Docker Logo" width="100" height="80">
   <img src="https://raw.githubusercontent.com/cncf/landscape/2925475a0257f81356e1d95da3ce9f212ccc4465/hosted_logos/grafana.svg" alt="Grafana" width="100" height="80">
   <img src="https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg" alt="Prometheus" width="100" height="80">
-  <img src=https://www.vectorlogo.zone/logos/influxdata/influxdata-icon.svg" alt="InfluxDB" width="100" height="80">
+  <img src="https://www.vectorlogo.zone/logos/influxdata/influxdata-icon.svg" alt="InfluxDB" width="100" height="80">
 </p>
 
 
