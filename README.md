@@ -114,12 +114,9 @@ Now we will configure InfluxDB on Jenkins . Go to Configure System.
 
   <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/c6220f22-530f-4964-a673-bffce2618aba" alt="image" width="200" height="470" />
 
-  <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/0a3fa932-dbb0-4b2c-9925-f81b0ba8b8f7" alt="image" width="900" height="500" />
+  <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/0a3fa932-dbb0-4b2c-9925-f81b0ba8b8f7" alt="image" width="1000" height="500" />
 
-  <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/62bde4c7-ea42-46de-8f86-0fd18074c628" alt="image" width="350" height="400" />
-
-
-  <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/bcba5909-f9eb-4c97-a61e-87dca7dbe9f6" alt="image" width="450" height="300" />
+  <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/62bde4c7-ea42-46de-8f86-0fd18074c628" alt="image" width="350" height="500" />
 
 - When we install "Prometheus Plugin" , it exposed a endpoint - VM_IP:8080/prometheus
 - So by this endpoint Prometheus will scrap the data from Jenkins
@@ -131,3 +128,5 @@ open the prometheus configuration file
 ```bash
 vi prometheus.yml
 ```
+
+  <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/bcba5909-f9eb-4c97-a61e-87dca7dbe9f6" alt="image" width="450" height="300" />
