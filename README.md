@@ -157,7 +157,7 @@ Now we will create Folders and Jobs to produce some data for our Dashboard.
 Create 2 to 3 jobs each in both of these folders with few basic hello world pipelines and with different no. of stages.
 
 When you will execute these pipelines you will see at the end of the logs that the data will be stored in influxDB
-<img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/bcba5909-f9eb-4c97-a61e-87dca7dbe9f6" alt="image" width="450" height="300" />
+<img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/bcba5909-f9eb-4c97-a61e-87dca7dbe9f6" alt="image" width="480" height="300" />
 
 Now if you check the database you will be able to see tables created in the jenkins DB
 
