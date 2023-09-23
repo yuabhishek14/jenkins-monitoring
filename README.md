@@ -161,4 +161,4 @@ When you will execute these pipelines you will see at the end of the logs that t
 
 Now if you check the database you will be able to see tables created in the jenkins DB
 
-image Here
+image Here ok
