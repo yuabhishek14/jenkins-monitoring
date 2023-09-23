@@ -116,7 +116,7 @@ Now we will configure InfluxDB on Jenkins . Go to Configure System.
 
   <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/0a3fa932-dbb0-4b2c-9925-f81b0ba8b8f7" alt="image" width="1000" height="500" />
 
-  <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/62bde4c7-ea42-46de-8f86-0fd18074c628" alt="image" width="350" height="500" />
+  <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/62bde4c7-ea42-46de-8f86-0fd18074c628" alt="image" width="350" height="600" />
 
 - When we install "Prometheus Plugin" , it exposed a endpoint - VM_IP:8080/prometheus
 - So by this endpoint Prometheus will scrap the data from Jenkins
