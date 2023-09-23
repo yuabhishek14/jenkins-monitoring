@@ -1,8 +1,15 @@
 # Jenkins-monitoring
+
 Production Jenkins Monitoring with Grafana , Prometheus and InfluxDB
 
 **Overview:**
+A robust monitoring solution for a Jenkins server using Prometheus, Grafana, and InfluxDB. Setup included Docker configuration and integration of monitoring tools. Created customized Grafana dashboards to visualize critical Jenkins metrics, enhancing decision-making for administrators. Improved troubleshooting skills and adeptly resolved data visualization challenges.
 
+- No. of Nodes
+- No. of executors
+- Build Queue
+- Failed Builds
+- Successful Builds
 
 ## Tech Stack
 
@@ -15,129 +22,133 @@ Production Jenkins Monitoring with Grafana , Prometheus and InfluxDB
 </p>
 
 ## Prerequisite
+
+- Basics of Docker , Jenkins , Grafana , Prometheus , InfluxDB , SQL Queries.
+- Ubuntu 22.04 Machine
 - Install Docker on your host
 
 ## 1. Tools Setup
 
-First we will create 4 containers of Jenkins, Grafana , Prometheus and InfluxDB
+Firstly we will create 4 containers for Jenkins, Grafana , Prometheus and InfluxDB
 
-### 1. Setup Jenkins 
+### 1. Setup Jenkins
 
 ```bash
-docker run -d -p 8080:8080 --name jenkins
+docker run -d -p 8080:8080 --name jenkins jenkins/jenkins
 ```
-go inside the Jenkins container to get the password
+
+To obtain the Jenkins administrator password, access the Jenkins container:
+
 ```bash
 docker exec -it jenkins bash
 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
-### 2. Setup Prometheus 
+
+### 2. Setup Prometheus
 
 go to home directory and create a folder sndee
- Now create a prometheus.yam file copy the contents from https://github.com/prometheus/prometheus/blob/main/documentation/examples/prometheus.yml
+Now create a prometheus.yam file copy the contents from https://github.com/prometheus/prometheus/blob/main/documentation/examples/prometheus.yml
 
- ```bash
- # my global config
+```bash
+# my global config
 global:
-  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
-  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
-  # scrape_timeout is set to the global default (10s).
+ scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+ evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+ # scrape_timeout is set to the global default (10s).
 
 # Alertmanager configuration
 alerting:
-  alertmanagers:
-    - static_configs:
-        - targets:
-          # - alertmanager:9093
+ alertmanagers:
+   - static_configs:
+       - targets:
+         # - alertmanager:9093
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
-  # - "first_rules.yml"
-  # - "second_rules.yml"
+ # - "first_rules.yml"
+ # - "second_rules.yml"
 
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-  - job_name: "prometheus"
+ # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+ - job_name: "prometheus"
 
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
+   # metrics_path defaults to '/metrics'
+   # scheme defaults to 'http'.
 
-    static_configs:
-      - targets: ["localhost:9090"]
- ```
+   static_configs:
+     - targets: ["localhost:9090"]
+```
 
- make prometheus up 
+make prometheus up
 
- ```bash
- docker run -d --name prometheus-container -v /home/sndee/prometheus.yml:/etc/prometheus/prometheus.yml -e TZ=UTC -p 9090:9090 ubuntu/prometheus:2.33-22.04_beta
- ```
+```bash
+docker run -d --name prometheus-container -v /home/sndee/prometheus.yml:/etc/prometheus/prometheus.yml -e TZ=UTC -p 9090:9090 ubuntu/prometheus:2.33-22.04_beta
+```
 
- ### 3. Setup Grafana 
+### 3. Setup Grafana
 
- ```bash
- docker run -d --name=grafana -p 3000:3000 grafana/grafana:8.5.5
- ```
+```bash
+docker run -d --name=grafana -p 3000:3000 grafana/grafana:8.5.5
+```
 
- ### 4. Setup InfluxDB 
+### 4. Setup InfluxDB
 
- ```bash
- docker run -d -p 8086:8086 --name influxdb2 influxdb:1.8.6-alpine
- ```
+```bash
+docker run -d -p 8086:8086 --name influxdb2 influxdb:1.8.6-alpine
+```
 
- ## 2. Jenkins - InfluxDB Integration 
- To accept the data from Jenkins to InfluxDb we need to o some pre requisites
- login to InfluxDB and create a database
+## 2. Jenkins - InfluxDB Integration
 
- ```bash
- docker exec -it influxdb2 bash
- ```
- to connect to influx db 
+To accept the data from Jenkins to InfluxDb we need to o some pre requisites
+login to InfluxDB and create a database
 
- ```bash
- influx
- ```
+```bash
+docker exec -it influxdb2 bash
+```
 
- create DB
+to connect to influx db
 
- ```bash
+```bash
+influx
+```
+
+create DB
+
+```bash
 CREATE DATABASE "jenkins" WITH DURATION 1825d REPLICATION 1 NAME "jenkins-retention"
 SHOW DATABASES
- ```
+```
 
- ## Intall Plugins
+## Intall Plugins
 
- restart you Jenkins 
- this will stop your Jenkins container so we need to start it
-  ```
-  docker start jenkins
-  ```
+restart you Jenkins
+this will stop your Jenkins container so we need to start it
+
+```
+docker start jenkins
+```
+
   <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/fd806043-6c93-4603-a1af-70058d44391f" alt="image" width="800" height="300" />
-
 
   <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/87d490ff-b113-441d-8403-7656f50e31ac" alt="image" width="650" height="250" />
 
-
   <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/c6220f22-530f-4964-a673-bffce2618aba" alt="image" width="200" height="470" />
-
 
   <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/0a3fa932-dbb0-4b2c-9925-f81b0ba8b8f7" alt="image" width="450" height="500" />
 
-
   <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/62bde4c7-ea42-46de-8f86-0fd18074c628" alt="image" width="350" height="400" />
-
 
   <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/bcba5909-f9eb-4c97-a61e-87dca7dbe9f6" alt="image" width="450" height="300" />
 
+- When we install "Prometheus Plugin" , it exposed a endpoint - VM_IP:8080/prometheus
+- So by this endpoint Prometheus will scrap the data from Jenkins
 
-  - When we install "Prometheus Plugin" , it exposed a endpoint - VM_IP:8080/prometheus
-  - So by this endpoint Prometheus will scrap the data from Jenkins
+## Configure the Information about Jenkins in Prometheus
 
-  ## Configure the Information about Jenkins in Prometheus
+open the prometheus configuration file
 
-  open the prometheus configuration file 
-
-  ```bash
-  vi prometheus.yml
-  ```
+```bash
+vi prometheus.yml
+```
