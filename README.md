@@ -29,12 +29,13 @@ A robust monitoring solution for a Jenkins server using Prometheus, Grafana, and
 
 ## 1. Tools Setup
 
+To Bring the Monitoring Stack with Docker :
 Firstly we will create 4 containers for Jenkins, Grafana , Prometheus and InfluxDB
 
 ### 1. Setup Jenkins
 
 ```bash
-docker run -d -p 8080:8080 --name jenkins jenkins/jenkins
+docker run -d -p 8080:8080 --name jenkins jenkins/jenkins:lts-jdk11
 ```
 
 To obtain the Jenkins administrator password, access the Jenkins container:
@@ -46,42 +47,11 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 
 ### 2. Setup Prometheus
 
-go to home directory and create a folder sndee
-Now create a prometheus.yam file copy the contents from https://github.com/prometheus/prometheus/blob/main/documentation/examples/prometheus.yml
+1. Navigate to your home directory and create a folder named "sndee."
 
-```bash
-# my global config
-global:
- scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
- evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
- # scrape_timeout is set to the global default (10s).
+2. Inside the "sndee" folder, create a file named "prometheus.yml" and copy the contents from [Here](https://github.com/prometheus/prometheus/blob/main/documentation/examples/prometheus.yml).
 
-# Alertmanager configuration
-alerting:
- alertmanagers:
-   - static_configs:
-       - targets:
-         # - alertmanager:9093
-
-# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
-rule_files:
- # - "first_rules.yml"
- # - "second_rules.yml"
-
-# A scrape configuration containing exactly one endpoint to scrape:
-# Here it's Prometheus itself.
-scrape_configs:
- # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
- - job_name: "prometheus"
-
-   # metrics_path defaults to '/metrics'
-   # scheme defaults to 'http'.
-
-   static_configs:
-     - targets: ["localhost:9090"]
-```
-
-make prometheus up
+3. Start Prometheus by running the following Docker command:
 
 ```bash
 docker run -d --name prometheus-container -v /home/sndee/prometheus.yml:/etc/prometheus/prometheus.yml -e TZ=UTC -p 9090:9090 ubuntu/prometheus:2.33-22.04_beta
