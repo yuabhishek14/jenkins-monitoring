@@ -49,7 +49,7 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 
 1. Navigate to your home directory and create a folder named "sndee."
 
-2. Inside the "sndee" folder, create a file named "prometheus.yml" and copy the contents from [Here](https://github.com/prometheus/prometheus/blob/main/documentation/examples/prometheus.yml).
+2. Inside the "sndee" folder, create a file named "prometheus.yml" and copy the contents from [Here](https://github.com/prometheus/prometheus/blob/main/documentation/examples/prometheus.yml) or [Here](https://github.com/yuabhishek14/jenkins-monitoring/blob/main/prometheus.yml)
 
 3. Start Prometheus by running the following Docker command:
 
@@ -71,8 +71,7 @@ docker run -d -p 8086:8086 --name influxdb2 influxdb:1.8.6-alpine
 
 ## 2. Jenkins - InfluxDB Integration
 
-To accept the data from Jenkins to InfluxDb we need to o some pre requisites
-login to InfluxDB and create a database
+Before we can start accepting data from Jenkins into InfluxDB, we need to complete a few prerequisites. Follow these steps to set up the integration:
 
 ```bash
 docker exec -it influxdb2 bash
@@ -92,6 +91,14 @@ SHOW DATABASES
 ```
 
 ## Intall Plugins
+Install Influx Plugin
+ <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/fd806043-6c93-4603-a1af-70058d44391f" alt="image" width="800" height="300" />
+
+- pipeline information
+- Stage and Folder information
+
+Install Prometheus Plugin
+  <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/87d490ff-b113-441d-8403-7656f50e31ac" alt="image" width="650" height="250" />
 
 restart you Jenkins
 this will stop your Jenkins container so we need to start it
@@ -99,10 +106,8 @@ this will stop your Jenkins container so we need to start it
 ```
 docker start jenkins
 ```
+Configure InfluxDB on Jenkins
 
-  <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/fd806043-6c93-4603-a1af-70058d44391f" alt="image" width="800" height="300" />
-
-  <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/87d490ff-b113-441d-8403-7656f50e31ac" alt="image" width="650" height="250" />
 
   <img src="https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/c6220f22-530f-4964-a673-bffce2618aba" alt="image" width="200" height="470" />
 
