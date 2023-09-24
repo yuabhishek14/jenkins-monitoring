@@ -148,6 +148,8 @@ Restart the prometheus container to sync up the new changes
 
 Now if you go to Prometheus UI you will see the Jenkins endpoint in the target section.
 
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/a9035d49-ed87-46bf-9857-2ae68fca1793)
+
 ## 6. Create Folders and Jobs
 
 Now we will create Folders and Jobs to produce some data for our Dashboard.
