@@ -170,10 +170,13 @@ Now if you check the database you will be able to see tables created in the jenk
 
 Add Prometheus and Influx as Datasource
 
+Add the Prometheus Endpoint
 ![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/c50a9297-6658-4339-b931-6336e74293e1)
 
+Add Influx DB Endpoint
 ![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/380a39e4-20b9-402c-a6f1-b910dae1f347)
 
+Add the DB to be used for Dashboard
 ![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/aba1aaa0-e896-4335-8259-2c13286b16a9)
 
 
