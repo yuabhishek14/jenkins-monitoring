@@ -161,4 +161,17 @@ When you will execute these pipelines you will see at the end of the logs that t
 
 Now if you check the database you will be able to see tables created in the jenkins DB
 
-image Here ok
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/fb091839-676c-4e35-9fef-75b91a927028)
+
+
+## 7. Grafana
+
+Add Prometheus and Influx as Datasource
+
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/c50a9297-6658-4339-b931-6336e74293e1)
+
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/380a39e4-20b9-402c-a6f1-b910dae1f347)
+
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/aba1aaa0-e896-4335-8259-2c13286b16a9)
+
+
