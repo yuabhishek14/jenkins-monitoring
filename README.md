@@ -290,4 +290,14 @@ select build_time/1000 FROM jenkins_data WHERE ("project_name" =~ /^(?i)$job$/ A
 
 ### 7. Latest Build Status
 
+Panel Type - Stat
+
+1. Use Influxdb as the datasource, and enter this query: 
+
+```bash
+SELECT build_result FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$job$/ AND "project_path" =~ /.*(?i)$folder.*$/) AND $timeFilter  ORDER BY time DESC LIMIT 1
+```
+
+2. Add value mappings for Success , Failure , Unstable and Aborted
+
 ### 8. Build Details
