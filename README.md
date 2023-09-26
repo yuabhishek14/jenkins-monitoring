@@ -192,3 +192,5 @@ Monitor Jenkins status (UP or DOWN):
 2. Use Prometheus as the datasource, and enter this query: **up{instance="192.168.1.5:8080", job="jenkins"}**.
 3. In value mapping, display "UP" with a green background for query result 1, and "DOWN" with a red background for result 0.
 
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/35ad4c18-b348-471e-a5b7-25c27f350b1d)
+
