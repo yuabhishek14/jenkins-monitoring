@@ -184,7 +184,7 @@ Now we need to add the datasource for the Grafana which will be used for making 
 
 ## 8. Create Dashboard
 
-### 1. **Stat Panel** 
+### 1. Stat Panel
 
 Monitor Jenkins status (UP or DOWN):
 
@@ -194,13 +194,43 @@ Monitor Jenkins status (UP or DOWN):
 
 ![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/35ad4c18-b348-471e-a5b7-25c27f350b1d)
 
-### 2. **Time Series Panel**
+### 2. Time Series Panel
 
 Monitor Executor count, Node count and Queue count:
 
-1.Use Prometheus as the datasource, and enter 3 queries :
+1. Use Prometheus as the datasource, and enter 3 queries :
 - For Executor count : jenkins_executor_count_value
 - For Node count : jenkins_node_count_value
 - For Queue count : jenkins_queue_size_value
 
 2. Add the respective legend
+
+### 3. Pie Chart Panel
+
+Monitor Pipeline Success, Failure, Abort and Unstable status
+
+1. Use Influxdb as the datasource, and enter 4 queries :
+- For Success : 
+```bash
+SELECT count(build_number) FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$job$/ AND "project_path" =~ /.*(?i)$folder.*$/) AND ("build_result" = 'SUCCESS' OR "build_result" = 'CompletedSuccess' ) AND $timeFilter 
+```
+
+- For Failure :
+
+```bash
+SELECT count(build_number) FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$job$/ AND "project_path" =~ /.*(?i)$folder.*$/) AND ("build_result" = 'FAILURE' OR "build_result" = 'CompletedError' ) AND $timeFilter 
+```
+
+- For Abort :
+
+```bash
+SELECT count(build_number) FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$job$/ AND "project_path" =~ /.*(?i)$folder.*$/) AND ("build_result" = 'ABORTED' OR "build_result" = 'Aborted' ) AND $timeFilter 
+```
+
+- For Unstable :
+
+```bash
+SELECT count(build_number) FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$job$/ AND "project_path" =~ /.*(?i)$folder.*$/) AND ("build_result" = 'UNSTABLE' OR "build_result" = 'Unstable' ) AND $timeFilter 
+```
+
+2. Add 4 Override to show Green, Red, Yellow and Grey on Success, Failure, Unstable and Abort respectively.
