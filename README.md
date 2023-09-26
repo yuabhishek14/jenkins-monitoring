@@ -193,9 +193,9 @@ Go to the Varibales section and Add folder and job variable .
 
 ![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/cf955f1c-5c02-42b6-919e-f2902c198348)
 
-### 1. Stat Panel
+### 1. Monitor Jenkins status (UP or DOWN):
 
-Monitor Jenkins status (UP or DOWN):
+Panel Type - Stat 
 
 1. Click "Add a new Panel," choose "Stat Panel."
 2. Use Prometheus as the datasource, and enter this query: **up{instance="192.168.1.5:8080", job="jenkins"}**.
@@ -203,9 +203,9 @@ Monitor Jenkins status (UP or DOWN):
 
 ![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/35ad4c18-b348-471e-a5b7-25c27f350b1d)
 
-### 2. Time Series Panel
+### 2. Monitor Executor count, Node count and Queue count:
 
-Monitor Executor count, Node count and Queue count:
+Panel Type - Time Series 
 
 1. Use Prometheus as the datasource, and enter 3 queries :
 - For Executor count : jenkins_executor_count_value
@@ -216,9 +216,9 @@ Monitor Executor count, Node count and Queue count:
 
 ![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/588c2425-e978-4f6e-9795-cb5313f7b246)
 
-### 3. Pie Chart Panel
+### 3. Monitor Pipeline Success, Failure, Abort and Unstable status
 
-Monitor Pipeline Success, Failure, Abort and Unstable status
+Panel Type - Pie Chart 
 
 1. Use Influxdb as the datasource, and enter 4 queries :
 - For Success : 
@@ -244,4 +244,31 @@ SELECT count(build_number) FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$j
 SELECT count(build_number) FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$job$/ AND "project_path" =~ /.*(?i)$folder.*$/) AND ("build_result" = 'UNSTABLE' OR "build_result" = 'Unstable' ) AND $timeFilter 
 ```
 
-2. Add 4 Override to show Green, Red, Yellow and Grey on Success, Failure, Unstable and Abort respectively.
+2. In the Legend Mode select Table mode.
+
+3. Add 4 Override to show Green, Red, Yellow and Grey on Success, Failure, Unstable and Abort respectively.
+
+### 4. Monitor No. of Pipelines Ran
+
+Panel Type - Stat
+
+1. Use Influxdb as the datasource, and enter this query: 
+
+```bash
+select count(DISTINCT project_name) FROM jenkins_data WHERE ("project_name" =~ /^(?i)$job$/ AND "project_path" =~ /.*(?i)$folder.*$/) AND $timeFilter 
+```
+### 5. Monitor No. of Builds
+
+Panel Type - Stat
+
+1. Use Influxdb as the datasource, and enter this query: 
+
+```bash
+SELECT count(build_number) FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$job$/ AND "project_path" =~ /.*(?i)$folder.*$/) AND $timeFilter 
+```
+
+### 6. Monitor AVG Build Time
+
+### 7. Latest Build Status
+
+### 8. Build Details
