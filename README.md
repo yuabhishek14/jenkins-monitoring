@@ -182,4 +182,13 @@ Now we need to add the datasource for the Grafana which will be used for making 
 
 ![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/aba1aaa0-e896-4335-8259-2c13286b16a9)
 
+## 8. Create Dashboard
+
+1. **Stat Panel** 
+
+Monitor Jenkins status (UP or DOWN):
+
+1. Click "Add a new Panel," choose "Stat Panel."
+2. Use Prometheus as the datasource, and enter this query: **up{instance="192.168.1.5:8080", job="jenkins"}**.
+3. In value mapping, display "UP" with a green background for query result 1, and "DOWN" with a red background for result 0.
 
