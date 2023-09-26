@@ -269,6 +269,16 @@ SELECT count(build_number) FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$j
 
 ### 6. Monitor AVG Build Time
 
+Panel Type - Stat
+
+1. Use Influxdb as the datasource, and enter this query: 
+
+```bash
+select build_time/1000 FROM jenkins_data WHERE ("project_name" =~ /^(?i)$job$/ AND "project_path" =~ /.*(?i)$folder.*$/) AND $timeFilter 
+```
+
+2. In the Standard options select Unit as Clock(s)
+
 ### 7. Latest Build Status
 
 ### 8. Build Details
