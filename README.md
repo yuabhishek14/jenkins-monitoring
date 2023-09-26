@@ -204,3 +204,5 @@ Monitor Executor count, Node count and Queue count:
 - For Queue count : jenkins_queue_size_value
 
 2. Add the respective legend
+
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/588c2425-e978-4f6e-9795-cb5313f7b246)
