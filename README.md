@@ -286,6 +286,8 @@ select build_time/1000 FROM jenkins_data WHERE ("project_name" =~ /^(?i)$job$/ A
 
 2. In the Standard options select Unit as Clock(s)
 
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/61cc1365-ed5a-4762-8365-d19f65e50455)
+
 ### 7. Latest Build Status
 
 ### 8. Build Details
