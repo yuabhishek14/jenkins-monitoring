@@ -184,6 +184,13 @@ Now we need to add the datasource for the Grafana which will be used for making 
 
 ## 8. Create Dashboard
 
+First we will create Drop downs for our Dashboard. By this we ill be able to see Data according to a particular folder or 
+Job.
+
+Go to the Varibales section and Add folder and job varibale .
+
+
+
 ### 1. Stat Panel
 
 Monitor Jenkins status (UP or DOWN):
