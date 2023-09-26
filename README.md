@@ -248,6 +248,9 @@ SELECT count(build_number) FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$j
 
 3. Add 4 Override to show Green, Red, Yellow and Grey on Success, Failure, Unstable and Abort respectively.
 
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/cfcb7054-c746-4ac0-b728-40a00d6d939e)
+
+
 ### 4. Monitor No. of Pipelines Ran
 
 Panel Type - Stat
@@ -257,6 +260,8 @@ Panel Type - Stat
 ```bash
 select count(DISTINCT project_name) FROM jenkins_data WHERE ("project_name" =~ /^(?i)$job$/ AND "project_path" =~ /.*(?i)$folder.*$/) AND $timeFilter 
 ```
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/af604668-abbb-4d53-bdfe-969504c41739)
+
 ### 5. Monitor No. of Builds
 
 Panel Type - Stat
@@ -266,6 +271,8 @@ Panel Type - Stat
 ```bash
 SELECT count(build_number) FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$job$/ AND "project_path" =~ /.*(?i)$folder.*$/) AND $timeFilter 
 ```
+
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/e293998b-521d-4ede-8211-c4defcb10886)
 
 ### 6. Monitor AVG Build Time
 
