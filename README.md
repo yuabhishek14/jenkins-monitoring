@@ -184,7 +184,7 @@ Now we need to add the datasource for the Grafana which will be used for making 
 
 ## 8. Create Dashboard
 
-1. **Stat Panel** 
+### 1. **Stat Panel** 
 
 Monitor Jenkins status (UP or DOWN):
 
@@ -194,3 +194,13 @@ Monitor Jenkins status (UP or DOWN):
 
 ![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/35ad4c18-b348-471e-a5b7-25c27f350b1d)
 
+### 2. **Time Series Panel**
+
+Monitor Executor count, Node count and Queue count:
+
+1.Use Prometheus as the datasource, and enter 3 queries :
+- For Executor count : jenkins_executor_count_value
+- For Node count : jenkins_node_count_value
+- For Queue count : jenkins_queue_size_value
+
+2. Add the respective legend
