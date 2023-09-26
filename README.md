@@ -187,9 +187,11 @@ Now we need to add the datasource for the Grafana which will be used for making 
 First we will create Drop downs for our Dashboard. By this we ill be able to see Data according to a particular folder or 
 Job.
 
-Go to the Varibales section and Add folder and job varibale .
+Go to the Varibales section and Add folder and job variable .
 
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/cc0ece09-02bf-4882-8c40-46d4156ea361)
 
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/cf955f1c-5c02-42b6-919e-f2902c198348)
 
 ### 1. Stat Panel
 
