@@ -300,4 +300,6 @@ SELECT build_result FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$job$/ AN
 
 2. Add value mappings for Success , Failure , Unstable and Aborted
 
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/be2ff3f8-ea2c-4eca-ad6b-26c1a312cad4)
+
 ### 8. Build Details
