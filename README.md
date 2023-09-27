@@ -330,3 +330,13 @@ http://192.168.1.5:8080/job/${__data.fields["jenkins_data.project_path"]}/${__da
 - Display Text: **/job$1**
 
 ![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/40487df5-62a3-4a32-acdc-a0c85df79b16)
+
+### 9. No. Of Active , Inactive and Require Update Plugin
+
+Panel Type - Stat
+
+1. Create 3 separate panel with the following query using Prometheus as datasource :
+
+- Active Plugins : ```bash jenkins_plugins_active ```
+- Inactive Plugins : ```bash jenkins_plugins_inactive ```
+- Require Update Plugins : ```bash jenkins_plugins_withUpdate ```
