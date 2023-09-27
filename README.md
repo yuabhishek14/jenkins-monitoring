@@ -303,3 +303,25 @@ SELECT build_result FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$job$/ AN
 ![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/be2ff3f8-ea2c-4eca-ad6b-26c1a312cad4)
 
 ### 8. Build Details
+
+Panel Type - Table
+
+1. Use Influxdb as the datasource, and enter this query: 
+
+```bash
+SELECT "build_exec_time","project_path","build_number","build_causer","build_time","build_result" FROM "jenkins_data" WHERE ("project_name" =~ /^(?i)$job$/ AND "project_path" =~ /.*(?i)$folder.*$/) AND $timeFilter 
+```
+
+2. **Data Transformation**: Click on the "Transform" option and select "outer join" to display all columns.
+
+3. **Override Properties**: Include override properties to modify the column names and unit types.
+
+4. **Data Link Property** for "Pipeline Path" Column: To make all pipeline names clickable and redirect to the corresponding Jenkins pipeline, add the following URL:
+
+```bash
+http://192.168.1.5:8080/job/${__data.fields["jenkins_data.project_path"]}/${__data.fields["jenkins_data.build_number"]}
+```
+5. Value Mapping Property to Handle "job" in URL: To address the issue where "job" appears between the project folder and the job in the URL (e.g., http://192.168.1.5:8080/job/call-booking-user/job/user-ui/4/), add a value mapping property with the following regex and display text:
+
+- Regex: **/(\/)/g**
+- Display Text: **/job$1**
