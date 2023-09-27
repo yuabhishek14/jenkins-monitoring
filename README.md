@@ -30,6 +30,11 @@ A robust monitoring solution for a Jenkins server using Prometheus, Grafana, and
 - Ubuntu 22.04 Machine
 - Install Docker on your host
 
+## 1. Tool Setup
+## 2. Tool Integrations
+## 3. DashBoard Setup
+
+
 ## 1. Tools Setup
 
 To Bring the Monitoring Stack with Docker :
