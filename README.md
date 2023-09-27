@@ -334,7 +334,7 @@ http://192.168.1.5:8080/job/${__data.fields["jenkins_data.project_path"]}/${__da
 - Regex: **/(\/)/g**
 - Display Text: **/job$1**
 
-![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/40487df5-62a3-4a32-acdc-a0c85df79b16)
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/0a61d61c-115e-4033-8a78-0eeae66f2333)
 
 ### 9. No. Of Active , Inactive and Require Update Plugin
 
@@ -345,3 +345,5 @@ Panel Type - Stat
 - Active Plugins : ```bash jenkins_plugins_active ```
 - Inactive Plugins : ```bash jenkins_plugins_inactive ```
 - Require Update Plugins : ```bash jenkins_plugins_withUpdate ```
+
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/58c467d4-1346-4717-b619-ca4dd1657e0a)
