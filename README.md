@@ -2,6 +2,9 @@
 
 Production Jenkins Monitoring with Grafana , Prometheus and InfluxDB
 
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/d50680a5-7199-47da-a8d3-46323715feb1)
+
+
 **Overview:**
 A robust monitoring solution for a Jenkins server using Prometheus, Grafana, and InfluxDB. Setup included Docker configuration and integration of monitoring tools. Created customized Grafana dashboards to visualize critical Jenkins metrics, enhancing decision-making for administrators. Improved troubleshooting skills and adeptly resolved data visualization challenges.
 
