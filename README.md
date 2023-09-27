@@ -340,3 +340,5 @@ Panel Type - Stat
 - Active Plugins : ```bash jenkins_plugins_active ```
 - Inactive Plugins : ```bash jenkins_plugins_inactive ```
 - Require Update Plugins : ```bash jenkins_plugins_withUpdate ```
+
+![image](https://github.com/yuabhishek14/jenkins-monitoring/assets/43784560/58c467d4-1346-4717-b619-ca4dd1657e0a)
