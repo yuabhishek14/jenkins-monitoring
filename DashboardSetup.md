@@ -1,6 +1,6 @@
 ## Create Dashboard
 
-First we will create Drop downs for our Dashboard. By this we ill be able to see Data according to a particular folder or 
+First we will create Drop downs for our Dashboard. By this we will be able to see Data according to a particular folder or 
 Job.
 
 Go to the Varibales section and Add folder and job variable .
